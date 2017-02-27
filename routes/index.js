@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var movie = require("../common").movie
-var WXInterface = require("../common").WXInterface
-var wx_config = require("../config").wx
+//var WXInterface = require("../common").WXInterface
+//var wx_config = require("../config").wx
 
 
 router.get("/",function(req,res){
