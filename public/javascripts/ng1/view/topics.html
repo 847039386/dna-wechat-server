@@ -1,0 +1,41 @@
+<swiper>
+    <slides>
+        <slide><img  src="{{topics[0].thumb_url}}" /></slide>
+        <slide><img  src="{{topics[1].thumb_url}}" /></slide>
+        <slide><img  src="{{topics[2].thumb_url}}" /></slide>
+        <slide><img  src="{{topics[3].thumb_url}}" /></slide>
+    </slides>
+    <pagination></pagination>
+</swiper>
+
+<div class="weui-panel weui-panel_access">
+    <div class="weui-panel__hd">往期精选</div>
+    <div class="weui-panel__bd" ng-repeat="topic in topics" >
+
+        <!--ng-click="toTopic(topic)"-->
+        <a href="{{topic.url}}" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="{{topic.thumb_url}}" />
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">{{topic.title}}</h4>
+                <p class="weui-media-box__desc">{{topic.digest}}</p>
+            </div>
+        </a>
+    </div>
+    <div class="weui-panel__ft">
+
+            <div class="weui-loadmore" ng-show="!loadingTopics && !notTopicsData" >
+                <span class="weui-loadmore__tips" ng-click="topage()">查看更多</span>
+            </div>
+            <div class="weui-loadmore" ng-show="loadingTopics">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在加载</span>
+            </div>
+            <div class="weui-loadmore weui-loadmore_line" ng-show="notTopicsData">
+                <span class="weui-loadmore__tips">暂无数据</span>
+            </div>
+            <span class="weui-cell__ft"></span>
+
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{
+  "name": "fitvdna-wechat-server",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "weui": "^1.1.0",
+    "angular-ui-swiper": "^2.3.6",
+    "angular-ui-router": "ui-router#^0.3.2"
+  }
+}
