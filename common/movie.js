@@ -38,7 +38,7 @@ function key_laosiji(res){
     res.reply({
         type: "image",
         content: {
-            mediaId: 'JqMNXCSzTyVVFtlaJn7aTvMgibusuUicOrD9g5EanI28FSl99A06nYC4c1ZRP6GN7nLS13gXB1mCPYMKkib1NqQCw'
+            mediaId: 'Sm9TtM1_0BoIsEidlzFJUlFFkqFuHAeTHBdb0IPeRvA'
         }
     });
 }
