@@ -42,7 +42,7 @@ var config = {
                 },
                 {
                     "type":"click",
-                    "name":"老司机",
+                    "name":"福利",
                     "key":"laosiji"
                 }]
         }

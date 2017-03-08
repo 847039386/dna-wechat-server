@@ -35,6 +35,11 @@ exports.messageTypeEvent = function(res,message){
 }
 
 function key_laosiji(res){
-    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！");
+    res.reply({
+        type: "image",
+        content: {
+            mediaId: 'JqMNXCSzTyVVFtlaJn7aTvMgibusuUicOrD9g5EanI28FSl99A06nYC4c1ZRP6GN7nLS13gXB1mCPYMKkib1NqQCw'
+        }
+    });
 }
 

@@ -17,4 +17,4 @@ var wx_config = require("../config").wx;
 //        res.send(result)
 //    });
 //}
-//
+
