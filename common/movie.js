@@ -35,11 +35,13 @@ exports.messageTypeEvent = function(res,message){
 }
 
 function key_laosiji(res){
-    res.reply({
-        type: "image",
-        content: {
-            mediaId: 'Sm9TtM1_0BoIsEidlzFJUshy9mQCx4W3NA-WSmvi7Gs'
-        }
-    });
+    //res.reply({
+    //    type: "image",
+    //    content: {
+    //        mediaId: 'Sm9TtM1_0BoIsEidlzFJUshy9mQCx4W3NA-WSmvi7Gs'
+    //    }
+    //});
+
+    res.reply("商务合作请联系微信：movielife9");
 }
 
