@@ -28,11 +28,15 @@ exports.messageTypeEvent = function(res,message){
         case "laosiji" :
             key_laosiji(res);
             break;
+        case "about" :
+            key_about(res)
+            break;
         default :
             res.reply();
             break;
     }
 }
+
 
 function key_laosiji(res){
     res.reply({
@@ -41,6 +45,10 @@ function key_laosiji(res){
             mediaId: 'Sm9TtM1_0BoIsEidlzFJUrUnO3ZJrv99FieUULL8nVM'
         }
     });
+}
+
+function key_about(res){
+    res.reply("商务合作请联系微信：movielife9");
 }
 
 //mediaId: 'Sm9TtM1_0BoIsEidlzFJUshy9mQCx4W3NA-WSmvi7Gs'  送会员
