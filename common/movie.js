@@ -1,8 +1,40 @@
 var movie = require("../proxy").movie
 
 
+
+// 搜索电影名称。
 exports.movieTypeText = function(name,res,req){
     var message = req.weixin;
+    if(name.substring(1,0) == "#"){
+        quick_select(name.substring(1),res);
+    }else{
+        selectMongoMovie(message,name,res);
+    }
+}
+
+// 键值方法。
+exports.messageTypeEvent = function(res,message){
+    var key = message.EventKey;
+    switch (key) {
+        case "laosiji" :            //老司机
+            key_laosiji(res);
+            break;
+        case "about" :              //关于我们
+            key_about(res)
+            break;
+        default :
+            res.reply("错误的键值：" + key);
+            break;
+    }
+}
+
+//用户第一次关注
+exports.user_subscribe = function(res){
+    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！");
+}
+
+//查找电影名
+function selectMongoMovie(message,name,res){
     movie.findByName(name,function(err,data){
         if(err){
             res.reply("资源出错啦。");
@@ -21,22 +53,16 @@ exports.movieTypeText = function(name,res,req){
     })
 }
 
-
-exports.messageTypeEvent = function(res,message){
-    var key = message.EventKey;
-    switch (key) {
-        case "laosiji" :
-            key_laosiji(res);
-            break;
-        case "about" :
-            key_about(res)
+function quick_select(tp,res){
+    switch (tp) {
+        case "你好" :
+            res.reply("你也好！");
             break;
         default :
-            res.reply();
+            res.reply("可以回复一下内容获取资源。\n\n1、#你好")
             break;
     }
 }
-
 
 function key_laosiji(res){
     res.reply({

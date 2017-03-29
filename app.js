@@ -8,12 +8,6 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var wechat = require('./routes/wechat');
 
-var WXInterface = require("./common").WXInterface
-var wx_config = require("./config").wx;
-
-//var WechatAPI = require("wechat-api")
-//var wx_api = new WechatAPI(wx_config.appid, wx_config.secret);
-//global["wechatApi"] = wx_api
 
 var app = express();
 
