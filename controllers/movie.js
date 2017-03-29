@@ -8,7 +8,7 @@ exports.findByMoviesName = function(req,res){
     var message = req.weixin;
     wechat_reply_text(message,res,req);
     wechat_reply_nav_click(message,res);
-    wechat_reply_subscribe(res);
+    wechat_reply_subscribe(message,res);
 }
 
 
