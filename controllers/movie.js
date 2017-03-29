@@ -28,7 +28,7 @@ function wechat_reply_nav_click(message,res){
 }
 
 //用户关注了之后
-function wechat_reply_subscribe(res){
+function wechat_reply_subscribe(message,res){
     if(message.MsgType == "event" && message.Event == "subscribe"){
         movie.user_subscribe(res)
     }
