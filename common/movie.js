@@ -22,6 +22,9 @@ exports.messageTypeEvent = function(res,message){
         case "about" :              //关于我们
             key_about(res)
             break;
+        case "activity" :
+            key_activity(res);
+            break;
         default :
             res.reply("错误的键值：" + key);
             break;
@@ -64,13 +67,17 @@ function quick_select(tp,res){
     }
 }
 
-function key_laosiji(res){
+function key_activity(res){
     res.reply({
         type: "image",
         content: {
             mediaId: 'Sm9TtM1_0BoIsEidlzFJUrUnO3ZJrv99FieUULL8nVM'
         }
     });
+}
+
+function key_laosiji(res){
+    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！");
 }
 
 function key_about(res){
