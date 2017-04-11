@@ -56,17 +56,6 @@ function selectMongoMovie(message,name,res){
     })
 }
 
-function quick_select(tp,res){
-    switch (tp) {
-        case "你好" :
-            res.reply("你也好！");
-            break;
-        default :
-            res.reply("可以回复一下内容获取资源。\n\n1、#你好")
-            break;
-    }
-}
-
 function key_activity(res){
     res.reply({
         type: "image",
@@ -82,6 +71,31 @@ function key_laosiji(res){
 
 function key_about(res){
     res.reply("商务合作请联系微信：movielife9");
+}
+
+function quick_select(tp,res){
+    switch (tp) {
+        case "你好" :
+            res.reply("你也好！");
+            break;
+        case "福利" :
+            article_wc_1(res)
+            break;
+        default :
+            res.reply("可以回复一下内容获取资源。\n\n1、#福利")
+            break;
+    }
+}
+
+function article_wc_1(res){
+    res.reply([
+        {
+            title: '影视评论丨这届香港金像奖最佳男女主终于给了他们！（附获奖名单）',
+            description: '这是女神与高富帅之间的对话',
+            picurl: 'http://mmbiz.qpic.cn/mmbiz_png/JqMNXCSzTyWLek82m35WquO4OVwVe5vExlQibYz67ZcCQUibqtzuZG7XPib1x4NzLGuNBdUbvOZuRA3sMtSqPywqg/0?wx_fmt=png',
+            url: 'http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003830&idx=2&sn=09911d2822ee1c078c2c9a09a59acdff&chksm=687cdcdc5f0b55cad0e2388f336ec25f191be60db7b2282d5fb79396903beec634c874a3c7e3#rd'
+        }
+    ]);
 }
 
 //mediaId: 'Sm9TtM1_0BoIsEidlzFJUshy9mQCx4W3NA-WSmvi7Gs'  送会员
