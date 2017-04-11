@@ -90,15 +90,18 @@ function quick_select(tp,res){
             article_wc_1(res)
             break;
         default :
-            res.reply("可以回复一下内容获取资源。\n\n1、#福利")
+            res.reply("可以回复一下内容获取资源。\n\n1、#抢会员")
             break;
     }
 }
 
 
 //#福利。
+function href_a(path,str){
+    return "<a href='"+ path +"'>str</a>"
+}
 function article_wc_1(res){
-    res.reply("发送抢会员弹出：\n您好，欢迎参加（4月11日-4月16日）抢爱奇艺vip会员活动。只需两步，即可拥有一个月之久的爱奇艺vip会员，让您追剧无烦恼。\n请按以下步骤操作：\n1.	分享：转发本次活动<a href='#'>标题</a>至朋友圈。\n2.	留言：加腹黑电影人工微信：movielife9，腹黑君会看您的分享记录哦，误删。\n特别提示:转发完一定要加微信movielife9好友留言。否则视无效哦。祝好运！");
+    res.reply("发送抢会员弹出：\n您好，欢迎参加（4月11日-4月16日）抢爱奇艺vip会员活动。只需两步，即可拥有一个月之久的爱奇艺vip会员，让您追剧无烦恼。\n请按以下步骤操作：\n1.	分享：转发本次活动"+ href_a("http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003830&idx=2&sn=09911d2822ee1c078c2c9a09a59acdff&chksm=687cdcdc5f0b55cad0e2388f336ec25f191be60db7b2282d5fb79396903beec634c874a3c7e3#rd","标题")+"至朋友圈。\n2.	留言：加腹黑电影人工微信：movielife9，腹黑君会看您的分享记录哦，误删。\n特别提示:转发完一定要加微信movielife9好友留言。否则视无效哦。祝好运！");
 }
 
 //mediaId: 'Sm9TtM1_0BoIsEidlzFJUshy9mQCx4W3NA-WSmvi7Gs'  送会员
