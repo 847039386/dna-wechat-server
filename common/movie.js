@@ -33,7 +33,7 @@ exports.messageTypeEvent = function(res,message){
 
 //用户第一次关注
 exports.user_subscribe = function(res){
-    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！");
+    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！\n"+href_a("http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003855&idx=4&sn=0f9b11e6469ced77c86d6e6194f7a8c0&chksm=687cc3255f0b4a335ed71b9ef74a67fd81f4543409f0a3489b6336f56f7adf3b3c10f1a1290c#rd","福利篇 | 爱奇艺vip会员免费送"));
 }
 
 //查找电影名
@@ -65,10 +65,10 @@ function key_activity(res){
     //});
     res.reply([
         {
-            title: '影视评论丨这届香港金像奖最佳男女主终于给了他们！（附获奖名单）',
-            description: '这是女神与高富帅之间的对话',
-            picurl: 'http://mmbiz.qpic.cn/mmbiz_png/JqMNXCSzTyWLek82m35WquO4OVwVe5vExlQibYz67ZcCQUibqtzuZG7XPib1x4NzLGuNBdUbvOZuRA3sMtSqPywqg/0?wx_fmt=png',
-            url: 'http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003830&idx=2&sn=09911d2822ee1c078c2c9a09a59acdff&chksm=687cdcdc5f0b55cad0e2388f336ec25f191be60db7b2282d5fb79396903beec634c874a3c7e3#rd'
+            title: '福利篇 | 爱奇艺vip会员免费送',
+            description: '爱奇艺vip 会员免费送追剧无烦恼 抢票方式：发送“#抢会员”到腹黑电影公众号，按回复内容操作。只需简单',
+            picurl: 'http://mmbiz.qpic.cn/mmbiz_jpg/JqMNXCSzTyVtq8wNfqOpql9w1f5HW0Dqlwibqc2M8ib1BNpWHmQicRI6jicvydy5JhJQx9WOOeic1qrx9cKyUqvMtSA/0?wx_fmt=jpeg',
+            url: 'http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003855&idx=4&sn=0f9b11e6469ced77c86d6e6194f7a8c0&chksm=687cc3255f0b4a335ed71b9ef74a67fd81f4543409f0a3489b6336f56f7adf3b3c10f1a1290c#rd"'
         }
     ]);
 }
@@ -98,10 +98,10 @@ function quick_select(tp,res){
 
 //#福利。
 function href_a(path,str){
-    return "<a href='"+ path +"'>str</a>"
+    return "<a href='"+ path +"'>"+ str +"</a>"
 }
 function article_wc_1(res){
-    res.reply("发送抢会员弹出：\n您好，欢迎参加（4月11日-4月16日）抢爱奇艺vip会员活动。只需两步，即可拥有一个月之久的爱奇艺vip会员，让您追剧无烦恼。\n请按以下步骤操作：\n1.	分享：转发本次活动"+ href_a("http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003830&idx=2&sn=09911d2822ee1c078c2c9a09a59acdff&chksm=687cdcdc5f0b55cad0e2388f336ec25f191be60db7b2282d5fb79396903beec634c874a3c7e3#rd","标题")+"至朋友圈。\n2.	留言：加腹黑电影人工微信：movielife9，腹黑君会看您的分享记录哦，误删。\n特别提示:转发完一定要加微信movielife9好友留言。否则视无效哦。祝好运！");
+    res.reply("您好，欢迎参加（4月11日-4月16日）抢爱奇艺vip会员活动。只需两步，即可拥有一个月之久的爱奇艺vip会员，让您追剧无烦恼。\n请按以下步骤操作：\n1.	分享：转发本次活动"+ href_a("http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003855&idx=4&sn=0f9b11e6469ced77c86d6e6194f7a8c0&chksm=687cc3255f0b4a335ed71b9ef74a67fd81f4543409f0a3489b6336f56f7adf3b3c10f1a1290c#rd","福利篇 | 爱奇艺vip会员免费送")+"至朋友圈。\n2.	留言：加腹黑电影人工微信：movielife9，腹黑君会看您的分享记录哦，误删。\n特别提示:转发完一定要加微信movielife9好友留言。否则视无效哦。祝好运！");
 }
 
 //mediaId: 'Sm9TtM1_0BoIsEidlzFJUshy9mQCx4W3NA-WSmvi7Gs'  送会员
