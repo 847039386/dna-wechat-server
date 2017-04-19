@@ -72,18 +72,20 @@ exports.messageTypeEvent = function(res,message){
 //用户第一次关注
 exports.user_subscribe = function(res,su){
     var bol = su == "subscribe" ? true : false;
+    var obj_s = { }
     getWechat(function(result){
         result.user.forEach(function(k){
             console.log(k)
             console.log(k.follow,bol)
             if(k.follow && bol){
-                quick_go(k.type,k,res)
-                console.log("is shuazhuangk")
+                obj_s = k
             }else{
-                quick_go(k.type,k,res)
+                obj_s = k;
+                return;
             }
         })
     })
+    quick_go(obj_s.type,obj_s,res)
 }
 
 
