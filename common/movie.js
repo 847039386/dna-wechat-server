@@ -81,8 +81,9 @@ exports.user_subscribe = function(res,su){
                 obj_s = k
             }
         })
+        quick_go(obj_s.type,obj_s,res)
     })
-    quick_go(obj_s.type,obj_s,res)
+
 }
 
 
