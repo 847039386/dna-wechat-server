@@ -1,10 +1,13 @@
 var movie = require("../common").movie
 
+
 exports.renzheng = function(req,res,next){
 
 }
 
+
 exports.findByMoviesName = function(req,res){
+
     var message = req.weixin;
     wechat_reply_text(message,res,req);
     wechat_reply_nav_click(message,res);

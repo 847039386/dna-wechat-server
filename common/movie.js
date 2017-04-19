@@ -1,4 +1,14 @@
-var movie = require("../proxy").movie
+var movie = require("../proxy").movie;
+
+var agent = require("superagent");
+
+
+function getWechat(callback){
+    agent.get("http://data.fitvdna.com/wechat/menu-update")
+        .end(function(err,result){
+            callback(result)
+        })
+}
 
 
 
@@ -10,30 +20,6 @@ exports.movieTypeText = function(name,res,req){
     }else{
         selectMongoMovie(message,name,res);
     }
-}
-
-// 键值方法。
-exports.messageTypeEvent = function(res,message){
-    var key = message.EventKey;
-    switch (key) {
-        case "laosiji" :            //老司机
-            key_laosiji(res);
-            break;
-        case "about" :              //关于我们
-            key_about(res)
-            break;
-        case "activity" :
-            key_activity(res);
-            break;
-        default :
-            res.reply("错误的键值：" + key);
-            break;
-    }
-}
-
-//用户第一次关注
-exports.user_subscribe = function(res){
-    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！\n");
 }
 
 //查找电影名
@@ -56,30 +42,6 @@ function selectMongoMovie(message,name,res){
     })
 }
 
-function key_activity(res){
-    //res.reply({
-    //    type: "image",
-    //    content: {
-    //        mediaId: 'Sm9TtM1_0BoIsEidlzFJUrUnO3ZJrv99FieUULL8nVM'
-    //    }
-    //});
-    res.reply([
-        {
-            title: '福利篇 | 爱奇艺vip会员免费送',
-            description: '爱奇艺vip 会员免费送追剧无烦恼 抢票方式：发送“#抢会员”到腹黑电影公众号，按回复内容操作。只需简单',
-            picurl: 'http://mmbiz.qpic.cn/mmbiz_jpg/JqMNXCSzTyVtq8wNfqOpql9w1f5HW0Dqlwibqc2M8ib1BNpWHmQicRI6jicvydy5JhJQx9WOOeic1qrx9cKyUqvMtSA/0?wx_fmt=jpeg',
-            url: 'http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003855&idx=4&sn=0f9b11e6469ced77c86d6e6194f7a8c0&chksm=687cc3255f0b4a335ed71b9ef74a67fd81f4543409f0a3489b6336f56f7adf3b3c10f1a1290c#rd"'
-        }
-    ]);
-}
-
-function key_laosiji(res){
-    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！");
-}
-
-function key_about(res){
-    res.reply("商务合作请联系微信：movielife9");
-}
 
 function quick_select(tp,res){
     switch (tp) {
@@ -95,6 +57,44 @@ function quick_select(tp,res){
     }
 }
 
+// 键值方法。
+exports.messageTypeEvent = function(res,message){
+    getWechat(function(result){
+        var key = message.EventKey;
+        result.keys.forEach(function(k){
+            if(key == k){
+                quick_go(k.type,k,res)
+            }
+        })
+    })
+}
+
+//用户第一次关注
+exports.user_subscribe = function(res){
+    res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！\n");
+}
+
+function quick_go(tp,value,res){
+    switch (tp) {
+        case "text" :
+            res.reply(value.value);
+            break;
+        case "activity" :
+            res.reply(value.body);
+            break;
+        case "image" :
+            res.reply({
+                type: "image",
+                content: {
+                    mediaId: value.mediaId
+                }
+            });
+            break;
+        default :
+            res.reply("可以回复一下内容获取资源。\n\n1、#抢会员")
+            break;
+    }
+}
 
 //#福利。
 function href_a(path,str){
@@ -103,6 +103,8 @@ function href_a(path,str){
 function article_wc_1(res){
     res.reply("您好，欢迎参加（4月11日-4月16日）抢爱奇艺vip会员活动。只需两步，即可拥有一个月之久的爱奇艺vip会员，让您追剧无烦恼。\n请按以下步骤操作：\n1.	分享：转发本次活动"+ href_a("http://mp.weixin.qq.com/s?__biz=MzIyNTU3NjUxNw==&mid=100003855&idx=4&sn=0f9b11e6469ced77c86d6e6194f7a8c0&chksm=687cc3255f0b4a335ed71b9ef74a67fd81f4543409f0a3489b6336f56f7adf3b3c10f1a1290c#rd","福利篇 | 爱奇艺vip会员免费送")+"至朋友圈。\n2.	留言：加腹黑电影人工微信：movielife9，腹黑君会看您的分享记录哦，勿删。\n特别提示:转发完一定要加微信movielife9好友留言。勿删勿取关否则视无效哦。祝好运！");
 }
+
+
 
 //mediaId: 'Sm9TtM1_0BoIsEidlzFJUshy9mQCx4W3NA-WSmvi7Gs'  送会员
 //mediaId: 'Sm9TtM1_0BoIsEidlzFJUrUnO3ZJrv99FieUULL8nVM'    广告
