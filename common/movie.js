@@ -76,6 +76,7 @@ exports.user_subscribe = function(res){
 }
 
 function quick_go(tp,value,res){
+    console.log(tp,value)
     switch (tp) {
         case "text" :
             res.reply(value.value);
