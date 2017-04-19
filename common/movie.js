@@ -61,9 +61,10 @@ function quick_select(tp,res){
 exports.messageTypeEvent = function(res,message){
     getWechat(function(result){
         var key = message.EventKey;
-        console.log(result)
         result.keys.forEach(function(k){
+
             if(key == k){
+                console.log(k)
                 quick_go(k.type,k,res)
             }
         })
@@ -76,7 +77,7 @@ exports.user_subscribe = function(res){
 }
 
 function quick_go(tp,value,res){
-    console.log(tp,value)
+
     switch (tp) {
         case "text" :
             res.reply(value.value);
