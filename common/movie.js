@@ -61,6 +61,7 @@ function quick_select(tp,res){
 exports.messageTypeEvent = function(res,message){
     getWechat(function(result){
         var key = message.EventKey;
+        console.log(result)
         result.keys.forEach(function(k){
             if(key == k){
                 quick_go(k.type,k,res)
