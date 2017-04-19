@@ -6,7 +6,7 @@ var agent = require("superagent");
 function getWechat(callback){
     agent.get("http://data.fitvdna.com/wechat/menu-update")
         .end(function(err,result){
-            callback(result)
+            callback(JSON.parse(result.text))
         })
 }
 
