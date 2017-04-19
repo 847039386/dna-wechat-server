@@ -70,17 +70,14 @@ exports.messageTypeEvent = function(res,message){
 }
 
 //用户第一次关注
-exports.user_subscribe = function(res,su){
-    var bol = su == "subscribe" ? true : false;
-    var obj_s = { }
+exports.user_subscribe = function(res,){
     getWechat(function(result){
-        result.user.forEach(function(k){
-            if(k.follow && bol){
-                obj_s = k
-            }
-        })
-        console.log(obj_s)
-        quick_go(obj_s.type,obj_s,res)
+        var subscribe = result.user[0];
+        if(result.user[0]){
+            quick_go(subscribe.type,subscribe,res)
+        }else{
+            reply("腹黑电影欢迎您。");
+        }
     })
 
 }
