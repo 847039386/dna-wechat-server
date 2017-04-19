@@ -72,7 +72,10 @@ exports.messageTypeEvent = function(res,message){
 //用户第一次关注
 exports.user_subscribe = function(res,su){
     var bol = su == "subscribe" ? true : false;
+
     result.user.forEach(function(k){
+        console.log(k)
+        console.log(k.follow,bol)
         if(k.follow && bol){
             quick_go(k.type,k,res)
         }else{
