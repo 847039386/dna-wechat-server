@@ -32,8 +32,8 @@ function wechat_reply_nav_click(message,res){
 
 //用户关注了之后
 function wechat_reply_subscribe(message,res){
-    if(message.MsgType == "event" && message.Event == "subscribe"){
-        movie.user_subscribe(res)
+    if(message.MsgType == "event" && message.Event == "subscribe" || message.MsgType == "event" && message.Event == "unsubscribe"){
+        movie.user_subscribe(res,message.Event)
     }
 }
 
