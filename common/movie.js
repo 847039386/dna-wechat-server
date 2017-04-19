@@ -79,9 +79,6 @@ exports.user_subscribe = function(res,su){
             console.log(k.follow,bol)
             if(k.follow && bol){
                 obj_s = k
-            }else{
-                obj_s = k;
-                return;
             }
         })
     })
