@@ -78,6 +78,7 @@ exports.user_subscribe = function(res,su){
             console.log(k.follow,bol)
             if(k.follow && bol){
                 quick_go(k.type,k,res)
+                console.log("is shuazhuangk")
             }else{
                 quick_go(k.type,k,res)
             }
