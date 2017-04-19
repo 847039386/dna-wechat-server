@@ -62,9 +62,7 @@ exports.messageTypeEvent = function(res,message){
     getWechat(function(result){
         var key = message.EventKey;
         result.keys.forEach(function(k){
-
-            if(key == k){
-                console.log(k)
+            if(key == k.key){
                 quick_go(k.type,k,res)
             }
         })
@@ -75,7 +73,6 @@ exports.messageTypeEvent = function(res,message){
 exports.user_subscribe = function(res){
     res.reply("来不及解释了，快上车！直接在腹黑电影公众号下面，点击左下角的键盘图标，切换到对话模式！输入你要找的电影、电视剧的名字，点击发送！腹黑君帮你搜尽所有！\n");
 }
-
 function quick_go(tp,value,res){
 
     switch (tp) {
