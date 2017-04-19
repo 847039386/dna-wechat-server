@@ -75,12 +75,11 @@ exports.user_subscribe = function(res,su){
     var obj_s = { }
     getWechat(function(result){
         result.user.forEach(function(k){
-            console.log(k)
-            console.log(k.follow,bol)
             if(k.follow && bol){
                 obj_s = k
             }
         })
+        console.log(obj_s)
         quick_go(obj_s.type,obj_s,res)
     })
 
