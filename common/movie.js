@@ -70,7 +70,7 @@ exports.messageTypeEvent = function(res,message){
 }
 
 //用户第一次关注
-exports.user_subscribe = function(res,){
+exports.user_subscribe = function(res){
     getWechat(function(result){
         var subscribe = result.user[0];
         if(result.user[0]){
