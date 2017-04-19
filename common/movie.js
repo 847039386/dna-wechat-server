@@ -78,7 +78,7 @@ function quick_go(tp,value,res){
         case "text" :
             res.reply(value.value);
             break;
-        case "artice" :
+        case "article" :
             res.reply(value.body);
             break;
         case "image" :
