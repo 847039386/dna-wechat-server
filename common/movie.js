@@ -28,7 +28,7 @@ function selectMongoMovie(message,name,res){
         if(err){
             res.reply("资源出错啦。");
         }else if(data.length == 0){
-            res.reply("未找到指定电影资源。请您添加腹黑电影人工微信号：movielife9，我们将邀请您加入腹黑电影资源微信群。");
+            res.reply("未找到指定电影资源。请您添加腹黑电影人工微信号：movielife9人工客服，索要影片资源。");
         }else{
             var isGD = data.length > 5 ? true : false;
             var movieLength = isGD ? 5 : data.length;
