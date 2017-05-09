@@ -28,7 +28,11 @@ function selectMongoMovie(message,name,res){
         if(err){
             res.reply("资源出错啦。");
         }else if(data.length == 0){
-            res.reply("未找到指定电影资源。请您添加腹黑电影人工微信号：movielife9人工客服，索要影片资源。");
+            //res.reply("未找到指定电影资源。请您添加腹黑电影人工微信号：movielife9人工客服，索要影片资源。");
+            getWechat(function(result){
+                res.reply(result.not[0].value);
+            })
+
         }else{
             var isGD = data.length > 5 ? true : false;
             var movieLength = isGD ? 5 : data.length;
@@ -44,17 +48,24 @@ function selectMongoMovie(message,name,res){
 
 
 function quick_select(tp,res){
-    switch (tp) {
-        case "你好" :
-            res.reply("你也好！");
-            break;
-        case "抢会员" :
-            article_wc_1(res)
-            break;
-        default :
-            res.reply("可以回复一下内容获取资源。\n\n1、#抢会员")
-            break;
-    }
+    getWechat(function(result){
+        var notGo = false;
+        var prompt = "并没有找到您回复的关键字！\n，请按照一下的方式去回复关键字。\n"
+        var userkey = result.userKey
+        for (var i in userkey){
+            if(userkey[i].key == tp){
+                notGo = true;
+                quick_go(userkey[i].type,userkey[i],res)
+                break;
+            }else{
+                prompt += userkey[i].key + "\n"
+            }
+        }
+        if(!notGo){
+            res.reply(prompt)
+        }
+
+    })
 }
 
 // 键值方法。
@@ -83,6 +94,9 @@ exports.user_subscribe = function(res){
 }
 
 
+
+
+
 function quick_go(tp,value,res){
     switch (tp) {
         case "text" :
@@ -100,7 +114,7 @@ function quick_go(tp,value,res){
             });
             break;
         default :
-            res.reply("可以回复一下内容获取资源。\n\n1、#抢会员")
+            res.reply("出错啦。")
             break;
     }
 }
