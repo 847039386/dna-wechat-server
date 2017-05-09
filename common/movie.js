@@ -50,15 +50,15 @@ function selectMongoMovie(message,name,res){
 function quick_select(tp,res){
     getWechat(function(result){
         var notGo = false;
-        var prompt = "并没有找到您回复的关键字！\n，请按照一下的方式去回复关键字。\n"
+        var prompt = "没有找到关键字！\n，关键字如下。\n\n"
         var userkey = result.userKey
         for (var i in userkey){
             if(userkey[i].key == tp){
                 notGo = true;
-                quick_go(userkey[i].type,userkey[i],res)
+                quick_go(userkey[i].type,userkey[i],res);
                 break;
             }else{
-                prompt += userkey[i].key + "\n"
+                prompt +=  ("#" + userkey[i].key + "\n")
             }
         }
         if(!notGo){
