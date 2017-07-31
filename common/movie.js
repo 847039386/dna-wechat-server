@@ -1,5 +1,5 @@
 var movie = require("../proxy").movie;
-var ruku = require("../ruku")
+var ruku = require("./ruku")
 
 var agent = require("superagent");
 
