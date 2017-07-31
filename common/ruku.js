@@ -1,5 +1,7 @@
 var movie = require("../proxy").movie;
 var VideoDisk = require("../proxy").VideoDisk;
+var agent = require("superagent");
+
 
 function getWechat(callback){
     agent.get("https://data.fitvdna.com/wechat/menu-update")
