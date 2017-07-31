@@ -1,6 +1,14 @@
 var movie = require("../proxy").movie;
 var VideoDisk = require("../proxy").VideoDisk;
 
+function getWechat(callback){
+    agent.get("https://data.fitvdna.com/wechat/menu-update")
+        .end(function(err,result){
+            callback(JSON.parse(result.text))
+        })
+}
+
+
 
 exports.movieFind = function(message,name,res){
   movie.findByName(name,function(err,data){
