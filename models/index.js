@@ -8,4 +8,4 @@ mongoose.connect('mongodb://127.0.0.1/douban_data', {
     }
 });
 exports.movie =  require("./movie").movie;
-exports.VideoDisk =  require("./movie").VideoDisk;
+exports.VideoDisk =  require("./VideoDisk").VideoDisk;
