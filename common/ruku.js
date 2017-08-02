@@ -15,8 +15,6 @@ function getWechat(callback){
 exports.movieFind = function(message,name,res){
   movie.findByName(name,function(err,data){
       if(err){
-         console.log('movieFind')
-         console.log(err)
           res.reply("资源出错啦。");
       }else if(data.length == 0){
           //res.reply("未找到指定电影资源。请您添加腹黑电影人工微信号：movielife9人工客服，索要影片资源。");
@@ -40,13 +38,10 @@ exports.movieFind = function(message,name,res){
 exports.VideoDiskFind = function(message,name,res,callback){
   VideoDisk.findByName(name,function(err,data){
       if(err){
-        console.log('VideoDiskfind')
-          console.log(err)
           callback(message,name,res)
       }else if(data.length == 0){
           callback(message,name,res)
       }else{
-          console.log('zheshi sha ')
           var isGD = data.length > 3 ? true : false;
           var movieLength = isGD ? 3 : data.length;
           var str = isGD ? "当前搜索到"+data.length+"条数据，如信息量太大请准确输入电影名称。\n\n" : "";
@@ -54,7 +49,6 @@ exports.VideoDiskFind = function(message,name,res,callback){
               str += (i+1) + ":" + data[i].name + "\n" + data[i].desc + "\n"
           }
           str += isGD ? "\n<a href='https://data.fitvdna.com/disk/finds/"+message.Content+"/1'>更多</a>" : ""
-          console.log(str)
           res.reply(str);
       }
   })

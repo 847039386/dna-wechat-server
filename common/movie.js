@@ -16,15 +16,12 @@ function getWechat(callback){
 // 搜索电影名称。
 exports.movieTypeText = function(name,res,req){
     var message = req.weixin;
-    console.log(name)
-    if(name.substring(1,0) == "#"){
-        console.log('this #')
-        quick_select(name.substring(1),res);
-
-    }else{
-       console.log('no #')
-        selectMongoMovie(message,name,res);
-    }
+    // if(name.substring(1,0) == "#"){
+    //     quick_select(name.substring(1),res);
+    // }else{
+    //     selectMongoMovie(message,name,res);
+    // }
+    res.reply('暂未搜索到电影。')
 }
 
 //查找电影名
