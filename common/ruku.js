@@ -54,6 +54,7 @@ exports.VideoDiskFind = function(message,name,res,callback){
               str += (i+1) + ":" + data[i].name + "\n" + data[i].desc + "\n"
           }
           str += isGD ? "\n<a href='https://data.fitvdna.com/disk/finds/"+message.Content+"/1'>更多</a>" : ""
+          console.log(str)
           res.reply(str);
       }
   })
