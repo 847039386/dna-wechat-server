@@ -20,7 +20,7 @@ exports.movieTypeText = function(name,res,req){
         quick_select(name.substring(1),res);
     }else{
         // selectMongoMovie(message,name,res);
-        res.reply("暂停服务")
+        res.reply("暂停服务！相关问题请联系人工QQ：3576228289。")
     }
 }
 
