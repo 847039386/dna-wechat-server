@@ -19,8 +19,8 @@ exports.movieTypeText = function(name,res,req){
     if(name.substring(1,0) == "#"){
         quick_select(name.substring(1),res);
     }else{
-        // selectMongoMovie(message,name,res);
-        res.reply("暂停服务！相关问题请联系人工QQ：3576228289。")
+        selectMongoMovie(message,name,res);
+        // res.reply("暂停服务！相关问题请联系人工QQ：3576228289。")
     }
 }
 
